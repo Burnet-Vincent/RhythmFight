@@ -360,7 +360,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210008972}
-  - component: {fileID: 210008971}
   - component: {fileID: 210008973}
   m_Layer: 0
   m_Name: PlayerInputManager
@@ -369,74 +368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &210008971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210008970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
-  m_MaxPlayerCount: -1
-  m_AllowJoining: 1
-  m_JoinBehavior: 1
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 210008973}
-        m_TargetAssemblyTypeName: MyPlayerInputManager, Assembly-CSharp
-        m_MethodName: OnJoined
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 210008973}
-        m_TargetAssemblyTypeName: MyPlayerInputManager, Assembly-CSharp
-        m_MethodName: OnLeft
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_JoinAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Join
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 34003d9e-8bf1-4647-a19c-c7be89deba15
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 3131022200727136294, guid: 5d2f0aa95cd5f0f4da68d8a344ca1c04, type: 3}
-  m_PlayerPrefab: {fileID: 5505272927155274720, guid: 249da4e0f84ed8c40a5ce6f52a062001, type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!4 &210008972
 Transform:
   m_ObjectHideFlags: 0
@@ -464,9 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ddf24dbaa54fb4c85b159186ed46c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerCount: 4
-  otherCount: 0
-  activeCount: 0
+  maxPlayerCount: 2
+  _inputDeviceNames: []
 --- !u!1 &700745187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7294606095149425337, guid: f652080ba88747e45a8e4c03e9d8198b, type: 3}

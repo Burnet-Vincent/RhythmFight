@@ -16,7 +16,6 @@ public class MyPlayerInputManager : MonoBehaviour
 
     private List<PlayerInput> _otherPlayers;
     
-    [SerializeField] private int otherCount = 0, activeCount = 0;
 
     private enum States
     {
@@ -25,6 +24,8 @@ public class MyPlayerInputManager : MonoBehaviour
     }
     
     private States _state = States.Menu;
+    private InputDevice[] _inputDevices;
+    [SerializeField] private List<string> _inputDeviceNames;
 
     private void Awake()
     {
@@ -46,6 +47,16 @@ public class MyPlayerInputManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        _inputDevices = InputSystem.devices.ToArray();
+        _inputDeviceNames = new List<string>();
+        foreach (InputDevice device in _inputDevices)
+        {
+            _inputDeviceNames.Add(device.name);
+        }
+    }
+
     public void OnJoined(PlayerInput playerInput)
     {
         
@@ -60,7 +71,6 @@ public class MyPlayerInputManager : MonoBehaviour
             {
                 _activePlayers[i] = playerInput;
                 check = true;
-                activeCount++;
                 
                 if (_state == States.Menu)
                 {
@@ -74,12 +84,12 @@ public class MyPlayerInputManager : MonoBehaviour
         if (!check)
         {
             _otherPlayers.Add(playerInput);
-            otherCount++;
         }
     }
     
     public void OnLeft(PlayerInput playerInput)
     {
+        print("Oui");
         bool check = false;
 
         if (_state == States.Menu)
@@ -94,7 +104,6 @@ public class MyPlayerInputManager : MonoBehaviour
             {
                 _activePlayers[i] = null;
                 check = true;
-                activeCount--;
 
                 break;
             }
@@ -107,7 +116,6 @@ public class MyPlayerInputManager : MonoBehaviour
                 if (_otherPlayers[i] == playerInput)
                 {
                     _otherPlayers[i] = null;
-                    otherCount--;
                     break;
                 }
             }
