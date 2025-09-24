@@ -77,14 +77,6 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 007276e9-1207-4803-a4e1-732d1ac4cbf3
-    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fd7dc98d-86b6-4d05-8089-f4d43ea7bd2d
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 22861ba0-a571-47a3-aacb-11a65141d79c
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -123,6 +115,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f7cf5873-3e38-4c37-af7e-548f4985f1f8
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81373959-b159-4fd5-b22b-fd0fc0f749cb
+    m_ActionName: Player/Confirm[/Keyboard/space,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -140,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656a84358a3348043ac925a7c070304f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
+  stepSize: 1
 --- !u!212 &6605795703240214114
 SpriteRenderer:
   m_ObjectHideFlags: 0

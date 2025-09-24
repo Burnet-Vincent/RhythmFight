@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+    
     public GameObject[] playerPanels;
     
     private enum States {
@@ -16,10 +21,22 @@ public class MenuManager : MonoBehaviour
 
     private States[] _playersState;
     private Image[] _playersBackgroundImage;
+    private PlayerInput[] _playersInput;
+
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(Instance.gameObject);
+        }
+        
+        Instance = this;
+    }
 
     private void Start()
     {
         _playersState = new States[playerPanels.Length];
+        _playersInput = new PlayerInput[playerPanels.Length];
         
         _playersBackgroundImage = new Image[playerPanels.Length];
         for (int i = 0; i < _playersBackgroundImage.Length; i++)
@@ -35,28 +52,29 @@ public class MenuManager : MonoBehaviour
     
     public void Player1ReadyClicked()
     {
-        SetDisconnected(0);
+        SetReady(0);
     }
     
     public void Player2ReadyClicked()
     {
-        SetDisconnected(1);
+        SetReady(1);
     }
     
     public void Player3ReadyClicked()
     {
-        SetDisconnected(2);
+        SetReady(2);
     }
     
     public void Player4ReadyClicked()
     {
-        SetDisconnected(3);
+        SetReady(3);
     }
 
     private void SetDisconnected(int index)
     {
         _playersState[index] = States.Disconnected;
         _playersBackgroundImage[index].color = new Color(1f, 1f, 1f, 0f);
+        _playersInput[index] = null;
         SetActiveItem(index, 0);
     }
     
@@ -79,5 +97,11 @@ public class MenuManager : MonoBehaviour
         playerPanels[indexPlayer].transform.GetChild(0).gameObject.SetActive(indexItem == 0);
         playerPanels[indexPlayer].transform.GetChild(1).gameObject.SetActive(indexItem == 1);
         playerPanels[indexPlayer].transform.GetChild(2).gameObject.SetActive(indexItem == 2);
+    }
+
+    public void AddPlayer(int i, PlayerInput playerInput)
+    {
+        SetButton(i);
+        _playersInput[i] = playerInput;
     }
 }

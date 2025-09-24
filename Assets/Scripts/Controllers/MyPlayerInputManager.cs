@@ -8,7 +8,7 @@ public class MyPlayerInputManager : MonoBehaviour
 {
     public static MyPlayerInputManager Instance;
     
-    [SerializeField] private int maxPlayerCount = 2;
+    [SerializeField] private int maxPlayerCount = 4;
     
     private PlayerInputManager _playerInputManager;
 
@@ -50,6 +50,7 @@ public class MyPlayerInputManager : MonoBehaviour
     {
         
         playerInput.gameObject.SetActive(false);
+
         
         bool check = false;
         
@@ -60,6 +61,11 @@ public class MyPlayerInputManager : MonoBehaviour
                 _activePlayers[i] = playerInput;
                 check = true;
                 activeCount++;
+                
+                if (_state == States.Menu)
+                {
+                    MenuManager.Instance.AddPlayer(i, playerInput);
+                }
 
                 break;
             }

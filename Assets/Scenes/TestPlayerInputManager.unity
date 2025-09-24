@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ddf24dbaa54fb4c85b159186ed46c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerCount: 2
+  maxPlayerCount: 4
   otherCount: 0
   activeCount: 0
 --- !u!1 &700745187 stripped
